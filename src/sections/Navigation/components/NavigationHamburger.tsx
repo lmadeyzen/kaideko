@@ -20,6 +20,7 @@ const Wrapper = styled.div<{ isOpen: boolean }>`
   padding-left: 1rem;
   background-color: rgba(256, 256, 256, 0.5);
   backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   height: 100%;
 
   &::after {
@@ -67,6 +68,7 @@ const Menu = styled.ul<{ isOpen: boolean }>`
   padding: 1rem 0;
   background-color: rgba(256, 256, 256, 0.5);
   backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   list-style-type: none;
   padding-left: 1rem;
   font-size: 1.2rem;
