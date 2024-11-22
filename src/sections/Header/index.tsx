@@ -17,7 +17,6 @@ const LeftElement = styled.div`
   top: -1rem;
 
   svg {
-    border: 1px solid red;
     width: 100%;
     height: 100%;
   }
@@ -31,7 +30,6 @@ const RightElement = styled.div`
   right: -7rem;
 
   svg {
-    border: 1px solid red;
     width: 400px;
     height: 100%;
   }
