@@ -133,7 +133,6 @@ Error generating stack: `+l.message+`
   top: -1rem;
 
   svg {
-    border: 1px solid red;
     width: 100%;
     height: 100%;
   }
@@ -145,7 +144,6 @@ Error generating stack: `+l.message+`
   right: -7rem;
 
   svg {
-    border: 1px solid red;
     width: 400px;
     height: 100%;
   }
