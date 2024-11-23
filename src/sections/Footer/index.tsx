@@ -9,7 +9,6 @@ const StyledFooter = styled.footer`
   position: relative;
   max-width: 100vw;
   overflow: hidden;
-  /* height: 500px; */
   font-size: 1.3rem;
 `;
 
@@ -51,13 +50,10 @@ const Contact = styled.div`
 
   & > :last-child {
     margin-top: 1rem;
-    font-weight: 600;
   }
 `;
 
-const P = styled.p`
-  text-align: center;
-`;
+const P = styled.p``;
 
 const ContactElement = styled.div`
   display: flex;
@@ -76,8 +72,8 @@ export const Footer = () => {
       <SectionHeader text="Kontakt" iconSize={2.8} icon={icons.people} />
       <LeftElement>{icons.footerRight}</LeftElement>
       <RightElement>{icons.footer}</RightElement>
-      <P>Skontaktuj się z nami i umów na darmową konsultacje!</P>
       <Contact>
+        <P>Skontaktuj się z nami i umów na darmową konsultacje!</P>
         <ContactElement>
           {icons.pin}
           <p>
@@ -97,7 +93,7 @@ export const Footer = () => {
           {icons.web}
           <p>www.kaideko.pl</p>
         </ContactElement>
-        <p>Dzięki nam przestaniesz martwić się o swój biznes !</p>
+        <p>Dzięki nam przestaniesz martwić się o swój biznes!</p>
       </Contact>
     </StyledFooter>
   );
