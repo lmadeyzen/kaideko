@@ -10,5 +10,15 @@ export const colors = {
   darkGreen: "#56731b",
   lightGreen: "#95ad73",
   lightBlue: "#92b2b7",
-  gray: "#d9d9d9",
+  gray: "#cecdcd",
+};
+
+export const breakpoints = {
+  xxl: "1400px",
+  xl: "1200px",
+  l: "992px",
+  m: "768px",
+  x: "576px",
+  xs: "430px",
+  xxs: "430px",
 };

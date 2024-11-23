@@ -3,6 +3,7 @@ import { icons } from "../../assets/icons";
 import { SectionHeader } from "../../components/SectionHeader";
 import { colors, sectionIds } from "../../constants";
 import { Text } from "../../components/Text";
+import { RotatingTile, Tile } from "./components/Tile";
 
 const Wrapper = styled.section`
   padding: 2rem 0;
@@ -18,27 +19,6 @@ const Grid = styled.div`
   p {
     font-size: 1.1rem;
     font-weight: 600;
-  }
-`;
-
-const GridElement = styled.div<{ color?: string; isRectangle?: boolean }>`
-  width: 100%;
-  border-radius: 1rem;
-  background-color: ${({ color }) => (color ? color : colors.gray)};
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0.1rem;
-
-  p {
-    color: white;
-  }
-
-  &:nth-child(1) {
-    grid-row: span 2 / span 2;
-    gap: 1rem;
   }
 `;
 
@@ -69,7 +49,7 @@ export const Duties = () => {
     <Wrapper id={sectionIds.duties}>
       <SectionHeader text="Obowiązki przedsiębiorcy" icon={icons.light} />
       <Grid>
-        <GridElement isRectangle color={colors.lightBlue}>
+        <Tile color={colors.lightBlue}>
           <Text fontWeight={300}>
             Czy wiesz, że 90% przedsiębiorców posiada obowiązki w zakresie
             ochrony środowiska ?
@@ -84,30 +64,35 @@ export const Duties = () => {
           <Text fontWeight={300}>
             Pomożemy zweryfikować twoje obowiązki i zajmiemy się nimi!
           </Text>
-        </GridElement>
-        <GridElement color={colors.lightGreen}>
-          <Text>Czy wytwarzasz odpady?</Text>
-        </GridElement>
-        <GridElement>
-          <Text>
-            Czy planujesz nową inwestycję albo chcesz rozwinąć już działającą
-            firmę?
-          </Text>
-        </GridElement>
-        <GridElement>
-          <Text>Czy emitujesz zanieczyszczenia do powietrza?</Text>
-        </GridElement>
-        <GridElement color={colors.lightGreen}>
-          <Text>
-            Czy posiadasz pozwolenia w zakresie korzystania ze środowiska ?
-          </Text>
-        </GridElement>
-        <GridElement color={colors.lightGreen}>
-          <Text>Czy pobierasz wodę i generujesz ścieki ?</Text>
-        </GridElement>
-        <GridElement>
-          <Text>Czy ponosisz opłaty za korzystanie ze środowiska ?</Text>
-        </GridElement>
+        </Tile>
+        <RotatingTile
+          color={colors.lightGreen}
+          frontText="Czy wytwarzasz odpady?"
+          backText="Lorem ipsum dolor sit amet"
+        />
+        <RotatingTile
+          backText="Lorem ipsum dolor sit amet"
+          frontText="Czy planujesz nową inwestycję albo chcesz rozwinąć już działającą
+            firmę?"
+        />
+        <RotatingTile
+          backText="Lorem ipsum dolor sit amet"
+          frontText="Czy emitujesz zanieczyszczenia do powietrza?"
+        />
+        <RotatingTile
+          color={colors.lightGreen}
+          backText="Lorem ipsum dolor sit amet"
+          frontText="Czy posiadasz pozwolenia w zakresie korzystania ze środowiska?"
+        />
+        <RotatingTile
+          color={colors.lightGreen}
+          backText="Lorem ipsum dolor sit amet"
+          frontText="Czy pobierasz wodę i generujesz ścieki?"
+        />
+        <RotatingTile
+          backText="Lorem ipsum dolor sit amet"
+          frontText="Czy ponosisz opłaty za korzystanie ze środowiska?"
+        />
       </Grid>
     </Wrapper>
   );

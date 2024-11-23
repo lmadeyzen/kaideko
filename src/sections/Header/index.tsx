@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { icons } from "../../assets/icons";
 import logo from "../../assets/logo.png";
+import { breakpoints } from "../../constants";
 
 const HeaderStyled = styled.header`
   position: relative;
@@ -54,7 +55,12 @@ const P = styled.p`
   font-family: "Archivo Narrow", sans-serif;
   font-weight: 300;
 
-  @media (max-width: 410px) {
+  @media (max-width: ${breakpoints.xs}) {
+    font-size: 1.05rem;
+    border: 1px solid red;
+  }
+
+  @media (max-width: ${breakpoints.xxs}) {
     font-size: 1.02rem;
   }
 `;
