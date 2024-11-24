@@ -2,7 +2,8 @@ import styled from "styled-components";
 import { icons } from "../../assets/icons";
 import { FlowerSection } from "../../components/FlowerSection";
 import { SectionHeader } from "../../components/SectionHeader";
-import { sectionIds } from "../../constants";
+import { breakpoints, sectionIds } from "../../constants";
+import { TextContainer } from "../../components/StyledComponets";
 
 const list = [
   "Raport początkowy i raport końcowy",
@@ -27,6 +28,10 @@ const List = styled.ul`
 
 const P = styled.p`
   text-align: center;
+
+  @media (min-width: ${breakpoints.m}) {
+    font-size: 1.2rem;
+  }
 `;
 
 export const Expertise = () => {
@@ -38,20 +43,24 @@ export const Expertise = () => {
           icon={icons.list}
           text="Opracowania i eskpertyzy środowiskowe"
         />
-        <P>
-          <b>
-            Uczestniczymy w projektach, na każdym etapie procesu inwestycyjnego.
-          </b>
-        </P>
-        <P>
-          Sporządzamy profesjonalne opracowania i dokumentacje z zakresu ochrony
-          środowiska zgodnie z obowiązującymi wymaganiami prawnymi tj.:
-        </P>
-        <List>
-          {list.map((label, i) => (
-            <li key={i}>{label}</li>
-          ))}
-        </List>
+        <TextContainer>
+          <P>
+            <b>
+              Uczestniczymy w projektach, na każdym etapie procesu
+              inwestycyjnego.
+            </b>
+          </P>
+          <P>
+            Sporządzamy profesjonalne opracowania i dokumentacje z zakresu
+            ochrony środowiska zgodnie z obowiązującymi wymaganiami prawnymi
+            tj.:
+          </P>
+          <List>
+            {list.map((label, i) => (
+              <li key={i}>{label}</li>
+            ))}
+          </List>
+        </TextContainer>
       </>
     </FlowerSection>
   );

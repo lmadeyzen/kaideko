@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import { icons } from "../assets/icons";
+import { breakpoints } from "../constants";
+
+const { s } = breakpoints;
 
 const Wrapper = styled.section`
   padding: 2rem 0;
@@ -11,26 +14,31 @@ const Wrapper = styled.section`
 `;
 
 const FlowerBg = styled.div`
-  z-index: -1;
-  position: absolute;
-  left: 45%;
-  top: 20%;
-  width: 100%;
-
   svg {
+    z-index: -1;
+    position: absolute;
     width: 80%;
-    height: 20%;
+    right: -20%;
+    top: 0;
+  }
+
+  @media (min-width: ${s}) {
+    svg {
+      width: 50%;
+      right: 0;
+      top: 0;
+    }
   }
 `;
 
 const ImgWrapper = styled.div`
   position: relative;
-  overflow-x: hidden;
   position: absolute;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
+  overflow: hidden;
 `;
 
 interface Props {

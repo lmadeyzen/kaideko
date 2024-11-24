@@ -1,26 +1,23 @@
 import styled from "styled-components";
 import { icons } from "../../assets/icons";
 import { SectionHeader } from "../../components/SectionHeader";
-import { sectionIds } from "../../constants";
+import { breakpoints, sectionIds } from "../../constants";
+import { TextContainer } from "../../components/StyledComponets";
 
 const Wrapper = styled.div`
-  /* border: 1px solid red; */
   padding: 3rem 0;
   color: black;
   scroll-margin: 2rem;
-`;
-
-const TextContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 0 1.5rem;
-  gap: 1rem;
 `;
 
 const P = styled.p`
   font-size: 1rem;
   font-weight: 400;
   text-align: center;
+
+  @media (min-width: ${breakpoints.m}) {
+    font-size: 1.2rem;
+  }
 `;
 
 const H3 = styled.h3`
@@ -39,6 +36,7 @@ const ListElement = styled.li`
   display: flex;
   gap: 1rem;
   align-items: center;
+  font-size: 1rem;
   svg {
     min-height: 1.5rem;
     max-height: 1.5rem;

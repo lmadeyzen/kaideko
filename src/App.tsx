@@ -8,35 +8,28 @@ import { Expertise } from "./sections/Expertise";
 import { Footer } from "./sections/Footer";
 import { breakpoints } from "./constants";
 
-const { x, xl, l, m, xs, xxl } = breakpoints;
+const { s, l, m, xs } = breakpoints;
 
 const Main = styled.main`
-  max-width: 1200px;
+  max-width: 1380px;
   margin-left: auto;
   margin-right: auto;
+  padding: 0 0.5rem;
 
-  @media (max-width: ${xxl}) {
-    padding: 0 4rem;
+  @media (min-width: ${xs}) {
+    padding: 0 0.5rem;
   }
 
-  @media (max-width: ${xl}) {
-    padding: 0 3rem;
-  }
-
-  @media (max-width: ${l}) {
-    padding: 0 2rem;
-  }
-
-  @media (max-width: ${m}) {
+  @media (min-width: ${s}) {
     padding: 0 1rem;
   }
 
-  @media (max-width: ${x}) {
-    padding: 0 0.5rem;
+  @media (min-width: ${m}) {
+    padding: 0 2rem;
   }
 
-  @media (max-width: ${xs}) {
-    padding: 0 0.5rem;
+  @media (min-width: ${l}) {
+    padding: 0 3rem;
   }
 `;
 

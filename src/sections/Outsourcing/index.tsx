@@ -3,7 +3,8 @@ import { SectionHeader } from "../../components/SectionHeader";
 import { icons } from "../../assets/icons";
 import { Text } from "../../components/Text";
 import { FlowerSection } from "../../components/FlowerSection";
-import { sectionIds } from "../../constants";
+import { breakpoints, sectionIds } from "../../constants";
+import { TextContainer } from "../../components/StyledComponets";
 
 const list = [
   { label: <b>Audyt środowiskowy</b> },
@@ -40,7 +41,7 @@ const list = [
 const MainList = styled.ul`
   text-align: left;
   padding-left: 1.5rem;
-  font-size: 0.9375rem;
+  font-size: 1rem;
 
   b {
     font-weight: 600;
@@ -54,6 +55,10 @@ const ChildList = styled.ul`
 const P = styled.p`
   text-align: center;
   margin-bottom: 1rem;
+
+  @media (min-width: ${breakpoints.m}) {
+    font-size: 1.2rem;
+  }
 `;
 
 export const Outsourcing = () => {
@@ -61,30 +66,32 @@ export const Outsourcing = () => {
     <FlowerSection id={sectionIds.outsourcing}>
       <>
         <SectionHeader text="Outsourcing firm" icon={icons.puzzle} />
-        <P>
-          Nasza obsługa abonamentowa pozwala na przejęcie całości bądź części
-          obowiązków firmy z zakresu ochrony środowiska. Do każdego Klienta
-          podchodzimy indywidualnie przygotowując ofertę cenową tak aby była ona
-          dostosowana do jego indywidualnych potrzeb i oczekiwań.
-        </P>
-        <Text>{"Zakres naszej abonamentowej obsługi:"}</Text>
-        <MainList>
-          {list.map((listElement) => {
-            if (listElement.list) {
-              return (
-                <>
-                  <li>{listElement.label}</li>
-                  <ChildList>
-                    {listElement.list.map((label) => (
-                      <li>{label}</li>
-                    ))}
-                  </ChildList>
-                </>
-              );
-            }
-            return <li>{listElement.label}</li>;
-          })}
-        </MainList>
+        <TextContainer>
+          <P>
+            Nasza obsługa abonamentowa pozwala na przejęcie całości bądź części
+            obowiązków firmy z zakresu ochrony środowiska. Do każdego Klienta
+            podchodzimy indywidualnie przygotowując ofertę cenową tak aby była
+            ona dostosowana do jego indywidualnych potrzeb i oczekiwań.
+          </P>
+          <Text>{"Zakres naszej abonamentowej obsługi:"}</Text>
+          <MainList>
+            {list.map((listElement) => {
+              if (listElement.list) {
+                return (
+                  <>
+                    <li>{listElement.label}</li>
+                    <ChildList>
+                      {listElement.list.map((label) => (
+                        <li>{label}</li>
+                      ))}
+                    </ChildList>
+                  </>
+                );
+              }
+              return <li>{listElement.label}</li>;
+            })}
+          </MainList>
+        </TextContainer>
       </>
     </FlowerSection>
   );

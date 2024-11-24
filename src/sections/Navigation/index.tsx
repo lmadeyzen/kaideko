@@ -12,15 +12,6 @@ const Nav = styled.nav`
   height: 5rem;
   width: 100%;
   z-index: 1;
-
-  /* &::after {
-    position: absolute;
-    content: "";
-    height: 1px;
-    width: 72%;
-    left: 14%;
-    background-color: #56731b;
-  } */
 `;
 
 export const Navigation = () => {
