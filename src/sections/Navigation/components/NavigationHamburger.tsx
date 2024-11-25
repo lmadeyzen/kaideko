@@ -3,7 +3,7 @@ import { NavigationLinks } from "..";
 import styled from "styled-components";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoIosArrowRoundForward } from "react-icons/io";
-import { colors } from "../../../constants";
+import { breakpoints, colors } from "../../../constants";
 import logo from "../../../assets/logo.png";
 
 interface Props {
@@ -33,6 +33,10 @@ const Wrapper = styled.div<{ isOpen: boolean }>`
     bottom: 0;
     transform: ${({ isOpen }) => `translateX(${isOpen ? "-60%" : 0})`};
     transition: all ${transition};
+  }
+
+  @media (min-width: ${breakpoints.l}) {
+    display: none;
   }
 `;
 
@@ -81,6 +85,10 @@ const Menu = styled.ul<{ isOpen: boolean }>`
     left: 11%;
     background-color: ${colors.darkGreen};
     bottom: 0;
+  }
+
+  @media (min-width: ${breakpoints.l}) {
+    display: none;
   }
 `;
 

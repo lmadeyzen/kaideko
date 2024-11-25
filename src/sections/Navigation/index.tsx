@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { sectionIds } from "../../constants";
 import { NavigationHamburger } from "./components/NavigationHamburger";
+import { NavigationBar } from "./components/NavigationBar";
 
 export type NavigationLinks = Array<{ label: string; id: string }>;
 
@@ -26,6 +27,7 @@ export const Navigation = () => {
   return (
     <Nav>
       <NavigationHamburger links={navigationList} />
+      <NavigationBar links={navigationList} />
     </Nav>
   );
 };
