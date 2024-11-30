@@ -8,6 +8,56 @@ import { useEffect, useRef, useState } from "react";
 
 const { s, xl, l, m, xs, xxl } = breakpoints;
 
+const tilesData = [
+  {
+    color: colors.lightGreen,
+    frontText: "Czy wytwarzasz odpady?",
+    backText: `Jeśli wytwarzasz odpady inne niż odpady komunalne jesteś zobowiązany do prowadzenia ich
+ewidencji i uzyskania wpisu do rejestru BDO.<br />
+Jeśli eksploatujesz instalację, w której wytwarzasz  odpady w ilościach przekraczających ustawowe
+progi - jesteś zobowiązany do uzyskania decyzji – pozwolenia na wytwarzanie odpadów.<br />
+Jeśli przetwarzasz odpady musisz posiadać decyzje na zbieranie i przetwarzanie odpadów.<br />
+Jeśli transportujesz odpady jesteś zobowiązany do uzyskania odpowiedniego wpisu w systemie BDO.`,
+    orderLeft: false,
+  },
+  {
+    color: colors.gray,
+    frontText:
+      "Czy planujesz nową inwestycję albo chcesz rozwinąć już działającą firmę?",
+    backText:
+      "Wspieramy Klientów na różnych etapach procesu inwestycyjnego – pomagamy w uzyskaniu niezbędnych decyzji na etapie realizacji - tj. decyzja o środowiskowych uwarunkowaniach, decyzja pozwolenie na budowę, a następnie decyzji sektorowych niezbędnych do prawidłowej eksploatacji inwestycji m.in. w zakresie emisji do powietrza, gospodarki odpadami czy gospodarki wodno-ściekowej.",
+    orderLeft: false,
+  },
+  {
+    color: colors.gray,
+    frontText: "Czy emitujesz zanieczyszczenia do powietrza?",
+    backText:
+      "Jeśli emitujesz gazy lub pyły do powietrza musisz uzyskać pozwolenie na emisję lub dokonać zgłoszenia. Ponadto musisz sporządzić raport do KOBIZE oraz składać do Marszałka wykazy zawierające zbiorcze zestawienie informacji o zakresie korzystania ze środowiska.",
+    orderLeft: true,
+  },
+  {
+    color: colors.lightGreen,
+    frontText: "Czy posiadasz pozwolenia w zakresie korzystania ze środowiska?",
+    backText:
+      "Skontaktuj się z nami, jeśli chcesz przeprowadzić audyt środowiskowy prowadzonej działalności lub potrzebujesz wsparcia we wdrożeniu zarządzeń pokontrolnych lub jeśli wprowadziłeś istotne zmiany w prowadzonej działalności objętej pozwoleniami.",
+    orderLeft: false,
+  },
+  {
+    color: colors.lightGreen,
+    frontText: "Czy pobierasz wodę i generujesz ścieki?",
+    backText:
+      "Jeśli w sposób szczególny korzystasz z wód np. wprowadzając ścieki do urządzeń kanalizacyjnych innych podmiotów, korzystasz z usług wodnych (odprowadzasz wody deszczowe, pobierasz wody podziemne) - podlegasz pod obowiązek sporządzenia operatu wodnoprawnego – uzyskania pozwolenia wodnoprawnego.<br /> Korzystanie z usług wodnych nakłada opłaty stałe i zmienne wnoszone do Wód Polskich,<br /> Jeżeli planujesz wykonać urządzenie wodne w postaci m.in. studni, wylotu, rowu, kanału, budowli piętrzącej lub planujesz zarurować rów, również musisz uzyskać pozwolenie wodnoprawne!",
+    orderLeft: true,
+  },
+  {
+    color: colors.gray,
+    frontText: "Czy ponosisz opłaty za korzystanie ze środowiska?",
+    backText:
+      "Jeśli np. eksploatujesz samochody, wózki widłowe, maszyny, posiadasz klimatyzacje w samochodach firmowych i budynkach, ogrzewasz pomieszczenia kotłami spalającymi gaz, drewno, węgiel i inne paliwa, posiadasz zbiorniki na paliwo lub agregat, lakierujesz, spawasz lub prowadzisz procesy technologiczne - jesteś zobowiązany składać raporty w KOBIZE, składać do Marszałka oświadczenia lub wykazy zawierające zbiorcze zestawienie informacji o zakresie korzystania ze środowiska, a po przekroczeniu ustawowych progów wnosić opłaty za korzystanie ze środowiska!",
+    orderLeft: false,
+  },
+];
+
 const Wrapper = styled.section`
   padding: 2rem 0;
   scroll-margin: 2.9rem;
@@ -122,6 +172,11 @@ const TextWithCheckmark = styled.p`
 export const Duties = () => {
   const [currentWidth, setCurrentWidth] = useState(0);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
+  const [openedTile, setOpenedTile] = useState(-1);
+
+  const handleTile = (index: number) => {
+    setOpenedTile(index);
+  };
 
   useEffect(() => {
     if (wrapperRef.current) {
@@ -139,7 +194,12 @@ export const Duties = () => {
     <Wrapper ref={wrapperRef} id={sectionIds.duties}>
       <SectionHeader text="Obowiązki przedsiębiorcy" icon={icons.light} />
       <Grid currentWidth={currentWidth}>
-        <Tile key={1} color={colors.lightBlue}>
+        <Tile
+          preventToFlip={true}
+          isFlipped={false}
+          key={0}
+          color={colors.lightBlue}
+        >
           <Text fontWeight={300}>
             Czy wiesz, że 90% przedsiębiorców posiada obowiązki w zakresie
             ochrony środowiska?
@@ -155,40 +215,18 @@ export const Duties = () => {
             Pomożemy zweryfikować twoje obowiązki i zajmiemy się nimi!
           </Text>
         </Tile>
-        <RotatingTile
-          key={2}
-          color={colors.lightGreen}
-          frontText="Czy wytwarzasz odpady?"
-          backText="Lorem ipsum dolor sit amet"
-        />
-        <RotatingTile
-          key={3}
-          backText="Lorem ipsum dolor sit amet"
-          frontText="Czy planujesz nową inwestycję albo chcesz rozwinąć już działającą
-            firmę?"
-        />
-        <RotatingTile
-          key={4}
-          backText="Lorem ipsum dolor sit amet"
-          frontText="Czy emitujesz zanieczyszczenia do powietrza?"
-        />
-        <RotatingTile
-          key={5}
-          color={colors.lightGreen}
-          backText="Lorem ipsum dolor sit amet"
-          frontText="Czy posiadasz pozwolenia w zakresie korzystania ze środowiska?"
-        />
-        <RotatingTile
-          key={6}
-          color={colors.lightGreen}
-          backText="Lorem ipsum dolor sit amet"
-          frontText="Czy pobierasz wodę i generujesz ścieki?"
-        />
-        <RotatingTile
-          key={7}
-          backText="Lorem ipsum dolor sit amet"
-          frontText="Czy ponosisz opłaty za korzystanie ze środowiska?"
-        />
+        {tilesData.map((tile, i) => (
+          <RotatingTile
+            key={i + 1}
+            index={i + 1}
+            openedTile={openedTile}
+            handleTile={handleTile}
+            backText={tile.backText}
+            frontText={tile.frontText}
+            color={tile.color}
+            currentWidth={currentWidth}
+          />
+        ))}
       </Grid>
     </Wrapper>
   );

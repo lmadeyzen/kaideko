@@ -12,7 +12,7 @@ const Nav = styled.nav`
   position: fixed;
   height: 5rem;
   width: 100%;
-  z-index: 1;
+  z-index: 100;
 `;
 
 export const Navigation = () => {

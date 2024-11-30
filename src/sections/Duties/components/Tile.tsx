@@ -1,17 +1,26 @@
 import styled, { css } from "styled-components";
-import { breakpoints, colors } from "../../../constants";
-import { useState } from "react";
+import { breakpoints } from "../../../constants";
+import { useEffect, useState } from "react";
 import { Text } from "../../../components/Text";
+import { darken } from "polished";
 
-const { s, l, xs } = breakpoints;
+const { s, l, xs, m } = breakpoints;
 
 interface Props {
   frontText: string;
   backText: string;
-  color?: string;
+  color: string;
+  currentWidth: number;
+  index: number;
+  openedTile: number;
+  handleTile: (index: number) => void;
 }
 
-export const Tile = styled.div<{ color?: string; preventToFlip?: boolean }>`
+export const Tile = styled.div<{
+  color?: string;
+  preventToFlip?: boolean;
+  isFlipped: boolean;
+}>`
   width: 100%;
   background-color: ${({ color }) => (color ? color : "transparent")};
   border-radius: 1rem;
@@ -23,6 +32,7 @@ export const Tile = styled.div<{ color?: string; preventToFlip?: boolean }>`
   position: relative;
   transition: all 1s;
   perspective: 1000px;
+  z-index: ${({ isFlipped }) => (isFlipped ? 10 : 0)};
   cursor: ${({ preventToFlip }) => (preventToFlip ? "auto" : "pointer")};
 
   p {
@@ -103,18 +113,68 @@ export const Tile = styled.div<{ color?: string; preventToFlip?: boolean }>`
   }
 `;
 
-const TileContent = styled.div<{ isFlipped: boolean }>`
+const TileContent = styled.div<{
+  isFlipped: boolean;
+  color: string;
+  currentWidth: number;
+  orderLeft?: boolean;
+}>`
+  z-index: ${({ isFlipped }) => (isFlipped ? 10 : 0)};
+  background-color: ${({ color }) => color};
+  box-shadow: ${({ color }) => `0px 0px 24px -7px ${color}`};
   position: absolute;
   width: 100%;
   height: 100%;
-  transition: transform 0.5s;
-  transform-style: preserve-3d; // Preserve 3D effect
+  transition: all 0.5s 0.1s;
+  transform-style: preserve-3d;
+  border-radius: 1rem;
 
-  ${({ isFlipped }) =>
+  ${({ isFlipped, color, currentWidth, orderLeft }) =>
     isFlipped &&
     css`
-      transform: rotateY(180deg);
+      background-color: ${darken(0.12, color)};
+      transform: ${`translateX(${
+        (currentWidth / 4) * (orderLeft ? 1 : -1)
+      }px) rotateY(180deg) scale(1.8)`};
     `}
+
+  @media (min-width: ${s}) {
+    ${({ isFlipped, color, currentWidth, orderLeft }) =>
+      isFlipped &&
+      css`
+        background-color: ${darken(0.12, color)};
+        transform: ${`translateX(${
+          (currentWidth / 4) * (orderLeft ? 1 : -1)
+        }px) rotateY(180deg) scale(1.4)`};
+      `}
+  }
+
+  @media (min-width: ${m}) {
+    ${({ isFlipped, color }) =>
+      isFlipped &&
+      css`
+        background-color: ${darken(0.12, color)};
+        transform: ${` rotateY(180deg) scale(1.135)`};
+      `}
+  }
+
+  @media (min-width: ${l}) {
+    ${({ isFlipped, color }) =>
+      isFlipped &&
+      css`
+        background-color: ${darken(0.12, color)};
+        transform: ${` rotateY(180deg) scale(1.4)`};
+      `}
+  }
+
+  @media (min-width: ${l}) {
+    ${({ isFlipped, color }) =>
+      isFlipped &&
+      css`
+        background-color: ${darken(0.12, color)};
+        transform: ${` rotateY(180deg) scale(1.3)`};
+      `}
+  }
 `;
 
 const TileFace = styled.div<{ color?: string }>`
@@ -124,8 +184,7 @@ const TileFace = styled.div<{ color?: string }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${({ color }) => (color ? color : colors.gray)};
-  border-radius: 1rem;
+
   position: absolute;
   top: 0;
   left: 0;
@@ -133,6 +192,23 @@ const TileFace = styled.div<{ color?: string }>`
 
   &.back {
     transform: rotateY(180deg);
+
+    p {
+      font-size: 0.58rem;
+
+      @media (min-width: ${s}) {
+        font-size: 0.75rem;
+      }
+      @media (min-width: ${m}) {
+        font-size: 0.95rem;
+      }
+      @media (min-width: ${l}) {
+        font-size: 0.65rem;
+      }
+      @media (min-width: ${l}) {
+        font-size: 0.75rem;
+      }
+    }
   }
 
   @media (min-width: ${xs}) {
@@ -145,17 +221,45 @@ const TileFace = styled.div<{ color?: string }>`
 `;
 
 export const RotatingTile = (props: Props) => {
-  const { frontText, backText, color } = props;
-  const [isFilpped, setIsFlipped] = useState(false);
+  const {
+    frontText,
+    backText,
+    color,
+    currentWidth,
+    index,
+    handleTile,
+    openedTile,
+  } = props;
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  useEffect(() => {
+    if (openedTile !== index) {
+      setIsFlipped(false);
+    }
+  }, [index, openedTile]);
 
   return (
-    <Tile onClick={() => setIsFlipped((prev) => !prev)}>
-      <TileContent isFlipped={isFilpped}>
-        <TileFace color={color}>
+    <Tile
+      isFlipped={isFlipped}
+      onClick={() => {
+        handleTile(index);
+        setIsFlipped((prev) => !prev);
+      }}
+    >
+      <TileContent
+        color={color}
+        currentWidth={currentWidth}
+        isFlipped={isFlipped}
+        orderLeft={index % 2 !== 0}
+      >
+        <TileFace color={isFlipped ? darken(0.2, color) : color}>
           <Text>{frontText}</Text>
         </TileFace>
-        <TileFace color={color} className="back">
-          <Text>{backText}</Text>
+        <TileFace
+          color={isFlipped ? darken(0.1, color) : color}
+          className="back"
+        >
+          <p dangerouslySetInnerHTML={{ __html: backText }}></p>
         </TileFace>
       </TileContent>
     </Tile>
