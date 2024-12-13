@@ -57,7 +57,7 @@ export const AboutUs = () => {
   return (
     <Wrapper id={sectionIds.aboutUs}>
       <SectionHeader
-        text="Kim Jesteśmy?"
+        text="Kim jesteśmy?"
         iconSize={4}
         icon={icons.flowerSmall}
       />

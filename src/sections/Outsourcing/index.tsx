@@ -4,7 +4,11 @@ import { icons } from "../../assets/icons";
 import { Text } from "../../components/Text";
 import { FlowerSection } from "../../components/FlowerSection";
 import { breakpoints, sectionIds } from "../../constants";
-import { TextContainer } from "../../components/StyledComponets";
+import {
+  ChildList,
+  MainList,
+  TextContainer,
+} from "../../components/StyledComponets";
 
 const list = [
   { label: <b>Audyt środowiskowy</b> },
@@ -16,7 +20,7 @@ const list = [
   {
     label: (
       <>
-        <b>Kopleksowa obsługa systemu BDO</b>, w tym m.in.
+        <b>Kompleksowa obsługa systemu BDO</b>, w tym m.in.
       </>
     ),
     list: [
@@ -37,20 +41,6 @@ const list = [
     ),
   },
 ];
-
-const MainList = styled.ul`
-  text-align: left;
-  padding-left: 1.5rem;
-  font-size: 1rem;
-
-  b {
-    font-weight: 600;
-  }
-`;
-
-const ChildList = styled.ul`
-  padding-left: 2rem;
-`;
 
 const P = styled.p`
   text-align: center;

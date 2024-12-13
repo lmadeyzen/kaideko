@@ -7,6 +7,7 @@ import { Outsourcing } from "./sections/Outsourcing";
 import { Expertise } from "./sections/Expertise";
 import { Footer } from "./sections/Footer";
 import { breakpoints } from "./constants";
+import CookiesPolicy from "./components/CookiesPolicy";
 
 const { s, l, m, xs } = breakpoints;
 
@@ -44,6 +45,7 @@ function App() {
         <Outsourcing />
         <Expertise />
       </Main>
+      <CookiesPolicy />
       <Footer />
     </>
   );

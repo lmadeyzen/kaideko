@@ -3,25 +3,39 @@ import { icons } from "../../assets/icons";
 import { FlowerSection } from "../../components/FlowerSection";
 import { SectionHeader } from "../../components/SectionHeader";
 import { breakpoints, sectionIds } from "../../constants";
-import { TextContainer } from "../../components/StyledComponets";
+import {
+  ChildList,
+  MainList,
+  TextContainer,
+} from "../../components/StyledComponets";
 
 const list = [
-  "Raport początkowy i raport końcowy",
-  "Raport o oddziaływaniu przedsięwzięcia na środowisko",
-  "Karta informacyjna przedsięwzięcia (KIP)",
-  "Wniosek o wydanie pozwolenia zintegrowanego",
-  "Wniosek o wydanie pozwolenia na wprowadzanie gazów lub pyłów do powietrza",
-  "Wniosek o wydanie pozwolenia wodnoprawnego",
-  "Wniosek o wydanie decyzji w zakresie gospodarki odpadami",
-  "Zgłoszenie instalacji",
-  "Przegląd ekologiczny",
-  "Analiza porealizacyjna",
-  "Program / plan gospodarki odpadami",
-  "Program ochrony środowiska",
-  "Programy niskiej emisji",
+  { label: "Raport początkowy i raport końcowy" },
+  { label: "Raport o oddziaływaniu przedsięwzięcia na środowisko" },
+  { label: "Karta informacyjna przedsięwzięcia (KIP)" },
+  { label: "Wniosek o wydanie pozwolenia zintegrowanego" },
+  {
+    label:
+      "Wniosek o wydanie pozwolenia na wprowadzanie gazów lub pyłów do powietrza",
+  },
+  { label: "Wniosek o wydanie pozwolenia wodnoprawnego" },
+  {
+    label: "Wniosek o wydanie decyzji w zakresie gospodarki odpadami",
+    list: [
+      "Pozwolenie na wytwarzanie odpadów",
+      "Zezwolenie na przetwarzanie odpadów",
+      "Zezwolenie na zbieranie odpadów ",
+    ],
+  },
+  { label: "Zgłoszenie instalacji" },
+  { label: "Przegląd ekologiczny" },
+  { label: "Analiza porealizacyjna" },
+  { label: "Program / plan gospodarki odpadami" },
+  { label: "Program ochrony środowiska" },
+  { label: "Programy niskiej emisji" },
 ];
 
-const List = styled.ul`
+const List = styled(MainList)`
   margin-top: 1rem;
   padding-left: 1.5rem;
 `;
@@ -41,7 +55,7 @@ export const Expertise = () => {
         <SectionHeader
           iconSize={2.8}
           icon={icons.list}
-          text="Opracowania i eskpertyzy środowiskowe"
+          text="Opracowania i ekspertyzy środowiskowe"
         />
         <TextContainer>
           <P>
@@ -56,9 +70,21 @@ export const Expertise = () => {
             tj.:
           </P>
           <List>
-            {list.map((label, i) => (
-              <li key={i}>{label}</li>
-            ))}
+            {list.map((listElement) => {
+              if (listElement.list) {
+                return (
+                  <>
+                    <li>{listElement.label}</li>
+                    <ChildList>
+                      {listElement.list.map((label) => (
+                        <li>{label}</li>
+                      ))}
+                    </ChildList>
+                  </>
+                );
+              }
+              return <li>{listElement.label}</li>;
+            })}
           </List>
         </TextContainer>
       </>

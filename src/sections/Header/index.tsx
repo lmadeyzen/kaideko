@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { icons } from "../../assets/icons";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logo-big.png";
 import { breakpoints } from "../../constants";
 
 const { xxl, xl, l, m, s, xs } = breakpoints;

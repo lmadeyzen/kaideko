@@ -39,6 +39,7 @@ const ImgWrapper = styled.div`
   top: 0;
   bottom: 0;
   overflow: hidden;
+  z-index: -1;
 `;
 
 interface Props {
