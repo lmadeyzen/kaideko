@@ -13,10 +13,10 @@ const tilesData = [
     color: colors.lightGreen,
     frontText: "Czy wytwarzasz odpady?",
     backText: `Jeśli wytwarzasz odpady inne niż odpady komunalne jesteś zobowiązany do prowadzenia ich
-ewidencji i uzyskania wpisu do rejestru BDO.<br />
+ewidencji i uzyskania wpisu do rejestru BDO.<br /><br />
 Jeśli eksploatujesz instalację, w której wytwarzasz  odpady w ilościach przekraczających ustawowe
-progi - jesteś zobowiązany do uzyskania decyzji – pozwolenia na wytwarzanie odpadów.<br />
-Jeśli przetwarzasz odpady musisz posiadać decyzje na zbieranie i przetwarzanie odpadów.<br />
+progi - jesteś zobowiązany do uzyskania decyzji – pozwolenia na wytwarzanie odpadów.<br /><br />
+Jeśli przetwarzasz odpady musisz posiadać decyzje na zbieranie i przetwarzanie odpadów.<br /><br />
 Jeśli transportujesz odpady jesteś zobowiązany do uzyskania odpowiedniego wpisu w systemie BDO.`,
     orderLeft: false,
   },
@@ -46,7 +46,7 @@ Jeśli transportujesz odpady jesteś zobowiązany do uzyskania odpowiedniego wpi
     color: colors.lightGreen,
     frontText: "Czy pobierasz wodę i generujesz ścieki?",
     backText:
-      "Jeśli w sposób szczególny korzystasz z wód np. wprowadzając ścieki do urządzeń kanalizacyjnych innych podmiotów, korzystasz z usług wodnych (odprowadzasz wody deszczowe, pobierasz wody podziemne) - podlegasz pod obowiązek sporządzenia operatu wodnoprawnego – uzyskania pozwolenia wodnoprawnego.<br /> Korzystanie z usług wodnych nakłada opłaty stałe i zmienne wnoszone do Wód Polskich,<br /> Jeżeli planujesz wykonać urządzenie wodne w postaci m.in. studni, wylotu, rowu, kanału, budowli piętrzącej lub planujesz zarurować rów, również musisz uzyskać pozwolenie wodnoprawne!",
+      "Jeśli w sposób szczególny korzystasz z wód np. wprowadzając ścieki do urządzeń kanalizacyjnych innych podmiotów, korzystasz z usług wodnych (odprowadzasz wody deszczowe, pobierasz wody podziemne) - podlegasz pod obowiązek sporządzenia operatu wodnoprawnego – uzyskania pozwolenia wodnoprawnego.<br /><br /> Korzystanie z usług wodnych nakłada opłaty stałe i zmienne wnoszone do Wód Polskich,<br /><br /> Jeżeli planujesz wykonać urządzenie wodne w postaci m.in. studni, wylotu, rowu, kanału, budowli piętrzącej lub planujesz zarurować rów, również musisz uzyskać pozwolenie wodnoprawne!",
     orderLeft: true,
   },
   {

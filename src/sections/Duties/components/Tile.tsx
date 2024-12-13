@@ -172,7 +172,7 @@ const TileContent = styled.div<{
       isFlipped &&
       css`
         background-color: ${darken(0.12, color)};
-        transform: ${` rotateY(180deg) scale(1.3)`};
+        transform: ${` rotateY(180deg) scale(1.35)`};
       `}
   }
 `;
@@ -194,7 +194,7 @@ const TileFace = styled.div<{ color?: string }>`
     transform: rotateY(180deg);
 
     p {
-      font-size: 0.58rem;
+      font-size: 0.53rem;
 
       @media (min-width: ${s}) {
         font-size: 0.75rem;
@@ -206,7 +206,7 @@ const TileFace = styled.div<{ color?: string }>`
         font-size: 0.65rem;
       }
       @media (min-width: ${l}) {
-        font-size: 0.75rem;
+        font-size: 0.63rem;
       }
     }
   }
