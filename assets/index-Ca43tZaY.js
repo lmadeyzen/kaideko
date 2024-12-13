@@ -623,7 +623,7 @@ Error generating stack: `+l.message+`
   @media (min-width: ${X3}) {
     ${({isFlipped:e,color:t})=>e&&m5`
         background-color: ${J2(.12,t)};
-        transform: ${" rotateY(180deg) scale(1.3)"};
+        transform: ${" rotateY(180deg) scale(1.35)"};
       `}
   }
 `,n0=w.div`
@@ -643,7 +643,7 @@ Error generating stack: `+l.message+`
     transform: rotateY(180deg);
 
     p {
-      font-size: 0.58rem;
+      font-size: 0.53rem;
 
       @media (min-width: ${Z4}) {
         font-size: 0.75rem;
@@ -655,7 +655,7 @@ Error generating stack: `+l.message+`
         font-size: 0.65rem;
       }
       @media (min-width: ${X3}) {
-        font-size: 0.75rem;
+        font-size: 0.63rem;
       }
     }
   }
@@ -668,11 +668,11 @@ Error generating stack: `+l.message+`
     padding: 0.5rem;
   }
 `,Ea=e=>{const{frontText:t,backText:n,color:i,currentWidth:r,index:l,handleTile:o,openedTile:a}=e,[u,c]=m1.useState(!1);return m1.useEffect(()=>{a!==l&&c(!1)},[l,a]),A.jsx(_n,{isFlipped:u,onClick:()=>{o(l),c(h=>!h)},children:A.jsxs(Ca,{color:i,currentWidth:r,isFlipped:u,orderLeft:l%2!==0,children:[A.jsx(n0,{color:u?J2(.2,i):i,children:A.jsx(P5,{children:t})}),A.jsx(n0,{color:u?J2(.1,i):i,className:"back",children:A.jsx("p",{dangerouslySetInnerHTML:{__html:n}})})]})})},{s:za,xl:ga,l:ei,m:ti,xs:Ra,xxl:Ma}=G,va=[{color:r1.lightGreen,frontText:"Czy wytwarzasz odpady?",backText:`Jeśli wytwarzasz odpady inne niż odpady komunalne jesteś zobowiązany do prowadzenia ich
-ewidencji i uzyskania wpisu do rejestru BDO.<br />
+ewidencji i uzyskania wpisu do rejestru BDO.<br /><br />
 Jeśli eksploatujesz instalację, w której wytwarzasz  odpady w ilościach przekraczających ustawowe
-progi - jesteś zobowiązany do uzyskania decyzji – pozwolenia na wytwarzanie odpadów.<br />
-Jeśli przetwarzasz odpady musisz posiadać decyzje na zbieranie i przetwarzanie odpadów.<br />
-Jeśli transportujesz odpady jesteś zobowiązany do uzyskania odpowiedniego wpisu w systemie BDO.`,orderLeft:!1},{color:r1.gray,frontText:"Czy planujesz nową inwestycję albo chcesz rozwinąć już działającą firmę?",backText:"Wspieramy Klientów na różnych etapach procesu inwestycyjnego – pomagamy w uzyskaniu niezbędnych decyzji na etapie realizacji - tj. decyzja o środowiskowych uwarunkowaniach, decyzja pozwolenie na budowę, a następnie decyzji sektorowych niezbędnych do prawidłowej eksploatacji inwestycji m.in. w zakresie emisji do powietrza, gospodarki odpadami czy gospodarki wodno-ściekowej.",orderLeft:!1},{color:r1.gray,frontText:"Czy emitujesz zanieczyszczenia do powietrza?",backText:"Jeśli emitujesz gazy lub pyły do powietrza musisz uzyskać pozwolenie na emisję lub dokonać zgłoszenia. Ponadto musisz sporządzić raport do KOBIZE oraz składać do Marszałka wykazy zawierające zbiorcze zestawienie informacji o zakresie korzystania ze środowiska.",orderLeft:!0},{color:r1.lightGreen,frontText:"Czy posiadasz pozwolenia w zakresie korzystania ze środowiska?",backText:"Skontaktuj się z nami, jeśli chcesz przeprowadzić audyt środowiskowy prowadzonej działalności lub potrzebujesz wsparcia we wdrożeniu zarządzeń pokontrolnych lub jeśli wprowadziłeś istotne zmiany w prowadzonej działalności objętej pozwoleniami.",orderLeft:!1},{color:r1.lightGreen,frontText:"Czy pobierasz wodę i generujesz ścieki?",backText:"Jeśli w sposób szczególny korzystasz z wód np. wprowadzając ścieki do urządzeń kanalizacyjnych innych podmiotów, korzystasz z usług wodnych (odprowadzasz wody deszczowe, pobierasz wody podziemne) - podlegasz pod obowiązek sporządzenia operatu wodnoprawnego – uzyskania pozwolenia wodnoprawnego.<br /> Korzystanie z usług wodnych nakłada opłaty stałe i zmienne wnoszone do Wód Polskich,<br /> Jeżeli planujesz wykonać urządzenie wodne w postaci m.in. studni, wylotu, rowu, kanału, budowli piętrzącej lub planujesz zarurować rów, również musisz uzyskać pozwolenie wodnoprawne!",orderLeft:!0},{color:r1.gray,frontText:"Czy ponosisz opłaty za korzystanie ze środowiska?",backText:"Jeśli np. eksploatujesz samochody, wózki widłowe, maszyny, posiadasz klimatyzacje w samochodach firmowych i budynkach, ogrzewasz pomieszczenia kotłami spalającymi gaz, drewno, węgiel i inne paliwa, posiadasz zbiorniki na paliwo lub agregat, lakierujesz, spawasz lub prowadzisz procesy technologiczne - jesteś zobowiązany składać raporty w KOBIZE, składać do Marszałka oświadczenia lub wykazy zawierające zbiorcze zestawienie informacji o zakresie korzystania ze środowiska, a po przekroczeniu ustawowych progów wnosić opłaty za korzystanie ze środowiska!",orderLeft:!1}],Ia=w.section`
+progi - jesteś zobowiązany do uzyskania decyzji – pozwolenia na wytwarzanie odpadów.<br /><br />
+Jeśli przetwarzasz odpady musisz posiadać decyzje na zbieranie i przetwarzanie odpadów.<br /><br />
+Jeśli transportujesz odpady jesteś zobowiązany do uzyskania odpowiedniego wpisu w systemie BDO.`,orderLeft:!1},{color:r1.gray,frontText:"Czy planujesz nową inwestycję albo chcesz rozwinąć już działającą firmę?",backText:"Wspieramy Klientów na różnych etapach procesu inwestycyjnego – pomagamy w uzyskaniu niezbędnych decyzji na etapie realizacji - tj. decyzja o środowiskowych uwarunkowaniach, decyzja pozwolenie na budowę, a następnie decyzji sektorowych niezbędnych do prawidłowej eksploatacji inwestycji m.in. w zakresie emisji do powietrza, gospodarki odpadami czy gospodarki wodno-ściekowej.",orderLeft:!1},{color:r1.gray,frontText:"Czy emitujesz zanieczyszczenia do powietrza?",backText:"Jeśli emitujesz gazy lub pyły do powietrza musisz uzyskać pozwolenie na emisję lub dokonać zgłoszenia. Ponadto musisz sporządzić raport do KOBIZE oraz składać do Marszałka wykazy zawierające zbiorcze zestawienie informacji o zakresie korzystania ze środowiska.",orderLeft:!0},{color:r1.lightGreen,frontText:"Czy posiadasz pozwolenia w zakresie korzystania ze środowiska?",backText:"Skontaktuj się z nami, jeśli chcesz przeprowadzić audyt środowiskowy prowadzonej działalności lub potrzebujesz wsparcia we wdrożeniu zarządzeń pokontrolnych lub jeśli wprowadziłeś istotne zmiany w prowadzonej działalności objętej pozwoleniami.",orderLeft:!1},{color:r1.lightGreen,frontText:"Czy pobierasz wodę i generujesz ścieki?",backText:"Jeśli w sposób szczególny korzystasz z wód np. wprowadzając ścieki do urządzeń kanalizacyjnych innych podmiotów, korzystasz z usług wodnych (odprowadzasz wody deszczowe, pobierasz wody podziemne) - podlegasz pod obowiązek sporządzenia operatu wodnoprawnego – uzyskania pozwolenia wodnoprawnego.<br /><br /> Korzystanie z usług wodnych nakłada opłaty stałe i zmienne wnoszone do Wód Polskich,<br /><br /> Jeżeli planujesz wykonać urządzenie wodne w postaci m.in. studni, wylotu, rowu, kanału, budowli piętrzącej lub planujesz zarurować rów, również musisz uzyskać pozwolenie wodnoprawne!",orderLeft:!0},{color:r1.gray,frontText:"Czy ponosisz opłaty za korzystanie ze środowiska?",backText:"Jeśli np. eksploatujesz samochody, wózki widłowe, maszyny, posiadasz klimatyzacje w samochodach firmowych i budynkach, ogrzewasz pomieszczenia kotłami spalającymi gaz, drewno, węgiel i inne paliwa, posiadasz zbiorniki na paliwo lub agregat, lakierujesz, spawasz lub prowadzisz procesy technologiczne - jesteś zobowiązany składać raporty w KOBIZE, składać do Marszałka oświadczenia lub wykazy zawierające zbiorcze zestawienie informacji o zakresie korzystania ze środowiska, a po przekroczeniu ustawowych progów wnosić opłaty za korzystanie ze środowiska!",orderLeft:!1}],Ia=w.section`
   padding: 2rem 0;
   scroll-margin: 2.9rem;
 `,xa=w.div`
